@@ -10,6 +10,7 @@ import Data from './data';
 function App() {
 
     const [flower,setflower] = useState(Data);
+    const [img,setimg] = useState([red,yellow,purple]);
 
   return (
     <div className="App">
@@ -56,10 +57,24 @@ function App() {
               <h4  className="name">{flower[2].title}</h4>
               <p>{flower[2].content} <br/> {flower[2].price}$</p>
           </div>
+            {
+                flower.map(function (a,i){
+                    return(
+                        <div className="col-md-4">
+                            <img src={img[i]} width={250}/>
+                            <p/>
+                            <h4 className="name">{flower[i].title}</h4>
+                            <p className="price">{flower[i].content} <br/> {flower[i].price}$</p>
+                        </div>
+                    )
+                })
+            }
         </div>
       </div>
     </div>
   );
 }
+
+
 
 export default App;
